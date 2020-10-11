@@ -1,0 +1,191 @@
+body{
+   background: url("https://besthqwallpapers.com/Uploads/7-12-2017/32353/desert-4k-sunset-art-bright-sun.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 100%;
+   padding: 0;
+   margin: 0;
+}
+.container {
+   margin: 50px auto 0;
+   background: #1F1F21;
+   width: 350px;
+   padding: 25px 0;
+   border-radius: 5px;
+   box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+   user-select: none;
+   display: grid;
+   gap: 10px; 
+   grid-template-columns:  70px  70px  70px  70px;  
+   grid-template-rows:  100px  70px  70px  70px  70px  70px;
+   align-items: stretch;
+   justify-content: center;
+   grid-template-areas: 
+   "header header header header"
+   "main main main sidebar"
+   "main main main sidebar"
+   "main main main sidebar"
+   "main main main sidebar";
+}
+
+
+.btn{
+   border-radius: 35px;
+   outline: none;
+   border: none;
+   background: #f0f0f0;
+   margin: 0;
+   text-align: center;
+   line-height: 65px;
+   font-family: 'Montserrat', sans-serif; 
+   font-size: 28px;
+   color: #262728;
+   cursor: pointer;
+   transition: 0.15s;
+}
+.btn:hover{
+   background: #b4b4b4;
+   transition: 0.2s;
+}
+.btn:active{
+   background: #8b8b8b;
+   transition: 0.15s;
+}
+.btn-func {
+   background: #a3a3a3;
+   font-size: 27px;
+}
+.btn-func:hover{
+   background: #888888;
+   transition: 0.15s;
+}
+.btn-func:active{
+   background: #6b6b6b;
+   transition: 0.15s;
+}
+
+
+.block_result { 
+   grid-area: header;
+   grid-column: 1/5;
+   grid-row: 1/2;
+   text-align: right;
+   line-height: 75px;
+   font-family: 'Montserrat', sans-serif;
+   background: #1F1F21;
+   font-size: 35px;
+   color: #fff;
+   padding: 0 15px;
+   border: none;
+   outline: none;
+   border-radius: 5px;
+   box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+   margin-bottom: 15px;
+}
+
+
+/* NUMBERS */
+.btn1 { 
+   grid-area: main;
+   grid-column: 1/2;
+   grid-row: 5/6;
+}
+.btn2 { 
+   grid-area: main;
+   grid-column: 2/3;
+   grid-row: 5/6;
+}
+.btn3 {
+   grid-area: main;
+   grid-column: 3/4;
+   grid-row: 5/6;
+}
+.btn4 { 
+   grid-area: main;
+   grid-column: 1/2;
+   grid-row: 4/5;
+}
+.btn5 { 
+   grid-area: main;
+   grid-column: 2/3;
+   grid-row: 4/5;
+}
+.btn6 { 
+   grid-area: main;
+   grid-column: 3/4;
+   grid-row: 4/5;
+}
+.btn7 { 
+   grid-area: main;
+   grid-column: 1/2;
+   grid-row: 3/4;
+}
+.btn8 { 
+   grid-area: main;
+   grid-column: 2/3;
+   grid-row: 3/4;
+}
+.btn9 { 
+   grid-area: main;
+   grid-column: 3/4;
+   grid-row: 3/4;
+}
+.btn0 { 
+   grid-area: main;
+   grid-column: 2/3;
+   grid-row: 6/7;
+}
+.btn_comma { 
+   grid-area: main;
+   grid-column: 1/2;
+   grid-row: 6/7;
+}
+
+
+/* SIDEBAR */
+.btn_backspace { 
+   grid-area: sidebar;
+   grid-column: 1/3;
+   grid-row: 2/3;
+   line-height: 76px;
+}
+.btn_del { 
+   grid-area: sidebar;
+   grid-column: 3/4;
+   grid-row: 2/3;
+   line-height: 70px;
+}
+.btn_divide { 
+   grid-area: sidebar;
+   grid-column: 4/5;
+   grid-row: 2/3;
+}
+.btn_multiply { 
+   grid-area: sidebar;
+   grid-column: 4/5;
+   grid-row: 3/4;
+}
+.btn_minus { 
+   grid-area: sidebar;
+   grid-column: 4/5;
+   grid-row: 4/5;
+}
+.btn_plus { 
+   grid-area: sidebar;
+   grid-column: 4/5;
+   grid-row: 5/6;
+}
+.btn_equal { 
+   grid-area: sidebar;
+   grid-column: 3/5;
+   grid-row: 6/7;
+   background: #F88F13;
+}
+.btn_equal:hover{
+   background: #bc6a05;
+   transition: 0.2s;
+}
+.btn_equal:active{
+   background: #874b03;
+   transition: 0.2s;
+}

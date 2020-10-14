@@ -432,6 +432,13 @@ body {
   transition: 0.4s;
 }
 
+.btn-history:hover {
+  background: #bc6a05;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
 .btn-history-rotate {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;

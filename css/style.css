@@ -7,8 +7,16 @@ body {
   margin: 0;
 }
 
-.container {
+.wrapper {
   margin: 50px auto 0;
+  padding: 0;
+  width: 350px;
+  height: 550px;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
   background: #1F1F21;
   width: 350px;
   padding: 25px 0;
@@ -33,6 +41,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
       grid-template-areas: "header header header header" "main main main sidebar" "main main main sidebar" "main main main sidebar" "main main main sidebar";
+  z-index: 555;
 }
 
 .btn {
@@ -99,9 +108,9 @@ body {
   text-align: right;
   line-height: 75px;
   font-family: 'Montserrat', sans-serif;
-  background: #1F1F21;
   font-size: 35px;
   color: #fff;
+  background: #1F1F21;
   padding: 0 15px;
   border: none;
   outline: none;
@@ -373,4 +382,90 @@ body {
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
+}
+
+/* HISTORY-LIST */
+.history {
+  position: relative;
+  margin: -550px 0 0 -25px;
+  width: 250px;
+  height: 550px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #1F1F21;
+  padding: 20px 25px;
+  border-radius: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.history_left {
+  margin: -550px 0 0 -235px;
+  -webkit-transition: 0.8s;
+  -o-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.btn-history {
+  position: absolute;
+  top: 230px;
+  left: 5px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  width: 35px;
+  height: 35px;
+  padding-right: 9px;
+  text-align: center;
+  line-height: 2px;
+  font-size: 25px;
+  background: #F88F13;
+  color: #1F1F21;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.btn-history:hover {
+  background: #bc6a05;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.btn-history-rotate {
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.history-list {
+  height: 450px;
+}
+
+.history-list_title {
+  text-align: center;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.history-list_item {
+  text-align: right;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #a3a3a3;
+  margin: 0 0 10px 0;
 }

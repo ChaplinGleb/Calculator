@@ -4,7 +4,12 @@ const historyOutput = document.getElementById("history")
 let j = 0
 
 function inputNumber(i){
-   if (j != 0){
+   if (j == 1){
+      resultResult.value = ""
+      j = 0
+   }
+   if (j == 5){
+      resultHistory.value = ""
       resultResult.value = ""
       j = 0
    }
@@ -12,8 +17,11 @@ function inputNumber(i){
 }
 
 function inputSymbol(a){
+   if (j == 5){
+      j = 1
+   }
    resultHistory.value = resultResult.value + a
-   ++j
+   j = 1
 }
 
 function result(){
@@ -24,10 +32,13 @@ function result(){
    resultHistory.value = result
    resultResult.value = ""
    resultResult.value = num
-   ++j
+   j = 5
 }
 function reset(){
    resultResult.value = ""
    resultHistory.value = ""
    j = 0
+}
+function backspace(){
+   
 }

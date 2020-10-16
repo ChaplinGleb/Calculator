@@ -3,12 +3,16 @@ const resultResult = document.getElementById("result-result")
 const historyOutput = document.getElementById("history")
 let j = 0
 
+
 function inputNumber(i){
+   if (resultResult.value.length == 0 && i == "."){
+      resultResult.value = "0"
+   }
+   if (resultResult.value)
    if (j == 1){
       resultResult.value = ""
       j = 0
-   }
-   if (j == 5){
+   }else if (j == 5){
       resultHistory.value = ""
       resultResult.value = ""
       j = 0
@@ -25,20 +29,46 @@ function inputSymbol(a){
 }
 
 function result(){
-   let num, result 
-   num = resultHistory.value + resultResult.value
-   num = eval(num)
+   let num, result;
+   if (resultResult.value == " " && resultHistory.value == " "){
+      resultResult.value = " "
+   }
+
+   if (resultResult.value == "error"){
+      reset()
+      return
+   }
+
+   num = eval(resultHistory.value + resultResult.value)
+   if ((num ^ 0) != num){
+      num = num.toFixed(2)
+   }
+
    result = resultHistory.value + resultResult.value + "="
    resultHistory.value = result
-   resultResult.value = ""
    resultResult.value = num
    j = 5
+
+   if (num == Infinity){
+      resultHistory.value = ""
+      resultResult.value = "error"
+   }
 }
+
 function reset(){
-   resultResult.value = ""
    resultHistory.value = ""
+   resultResult.value = ""
    j = 0
 }
+
 function backspace(){
-   
+   resultResult.value = resultResult.value.substring(0, resultResult.value.length - 1)
+}
+document.getElementById("result-result").onkeydown = function(e){
+   if((e.which >=48 && e.which <=57) || (e.which >=96 && e.which <=105) || e.which==8 || (e.which >=37 && e.which <=40) || e.which==46) // delete 
+   {
+       return true;
+   } else {
+       return false;            
+   }		 
 }

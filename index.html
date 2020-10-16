@@ -11,10 +11,12 @@
 <body>
    <div class="wrapper">
       <div class="container">
+
          <div class="block_result">
-            <input id="result-history" class="result-history" maxlength="11"></input>
-            <input id="result-result" class="result-result" placeholder="0"  maxlength="11"></input>
+            <input id="result-history" class="result-history" maxlength="21" disabled></input>
+            <input id="result-result" class="result-result" placeholder="0"  maxlength="21" autofocus"></input>
          </div>
+
          <button id="btn1" onclick="inputNumber('1')" type="text" class="btn btn1">1</button>
          <button id="btn2" onclick="inputNumber('2')" type="text" class="btn btn2">2</button>
          <button id="btn3" onclick="inputNumber('3')" type="text" class="btn btn3">3</button>
@@ -36,12 +38,6 @@
          <button id="btn_plus" onclick="inputSymbol('+')" type="text" class="btn btn-func btn_plus">+</button>
          <button id="btn_equal" onclick="result()" type="text" class="btn btn-func btn_equal">=</button>
       </div>
-      <!-- <div class="history">
-         <p class="history-list_title">history</p>
-         <div id="history" class="history-list">
-         </div>
-         <button id="openHistory" type="text" class="btn-history">❮</button>
-      </div> -->
    </div>
    <script src="jquery-2.2.3.min.js"></script>
    <script src="script.js"></script>

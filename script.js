@@ -1,60 +1,74 @@
-const resultCalc = document.getElementById("box_result")
+const resultHistory = document.getElementById("result-history")
+const resultResult = document.getElementById("result-result")
 const historyOutput = document.getElementById("history")
-let i = 0
-function input(i){
-   if (resultCalc.value.length > 11){
-      resultCalc.value = "Too much";
+let j = 0
+
+
+function inputNumber(i){
+   if (resultResult.value.length == 0 && i == "."){
+      resultResult.value = "0"
    }
-   if (resultCalc.value != "Too much" && resultCalc.value != "Error"){
-      resultCalc.value += i;   
+   if (resultResult.value)
+   if (j == 1){
+      resultResult.value = ""
+      j = 0
+   }else if (j == 5){
+      resultHistory.value = ""
+      resultResult.value = ""
+      j = 0
    }
-   if(resultCalc.value.substr(resultCalc.value.length - 2) == "**" || resultCalc.value.substr(resultCalc.value.length - 2) == "//" || resultCalc.value.substr(resultCalc.value.length - 2) == "--" || resultCalc.value.substr(resultCalc.value.length - 2) == "++"){
-      resultCalc.value = resultCalc.value.substring(0, resultCalc.value.length - 1);
-   }
-}
-function result(){
-   let item, p
-   if (eval(resultCalc.value) == undefined){
-      resultCalc.value = "Error"
-      return
-   }
-   if (resultCalc.value == "Error"){
-      return
-   }
-   if (eval(resultCalc.value) == Infinity){
-      resultCalc.value = "Error"
-      return
-   }
-   if (resultCalc.value != eval(resultCalc.value)){
-      item = resultCalc.value + '=' + eval(resultCalc.value)
-   }
-   resultCalc.value = eval(resultCalc.value)
-   if(item != undefined){
-      p = document.createElement('p')
-      p.className ='history-list_item'
-      p.innerHTML = item
-      if (i <= 11){
-         historyOutput.prepend(p)
-         ++i
-      }else {
-         historyOutput.removeChild(historyOutput.lastChild);
-         historyOutput.prepend(p)
-      }
-   }
-}
-function backspace(){
-   if (resultCalc.value == "Error" || resultCalc.value == "Too much"){
-      resultCalc.value = ""
-   }
-   resultCalc.value = resultCalc.value.substring(0, resultCalc.value.length - 1)
-}
-function reset(){
-   resultCalc.value = ""
+   resultResult.value += i
 }
 
-$(document).ready(function(){
-   $("#openHistory").click(function(){
-      $("div.history").toggleClass("history_left")
-         $("#openHistory").toggleClass("btn-history-rotate")
-   });
-})
+function inputSymbol(a){
+   if (j == 5){
+      j = 1
+   }
+   resultHistory.value = resultResult.value + a
+   j = 1
+}
+
+function result(){
+   let num, result;
+   if (resultResult.value == " " && resultHistory.value == " "){
+      resultResult.value = " "
+   }
+
+   if (resultResult.value == "error"){
+      reset()
+      return
+   }
+
+   num = eval(resultHistory.value + resultResult.value)
+   if ((num ^ 0) != num){
+      num = num.toFixed(2)
+   }
+
+   result = resultHistory.value + resultResult.value + "="
+   resultHistory.value = result
+   resultResult.value = num
+   j = 5
+
+   if (num == Infinity){
+      resultHistory.value = ""
+      resultResult.value = "error"
+   }
+}
+
+function reset(){
+   resultHistory.value = ""
+   resultResult.value = ""
+   j = 0
+}
+
+function backspace(){
+   resultResult.value = resultResult.value.substring(0, resultResult.value.length - 1)
+}
+document.getElementById("result-result").onkeydown = function(e){
+   if((e.which >=48 && e.which <=57) || (e.which >=96 && e.which <=105) || e.which==8 || (e.which >=37 && e.which <=40) || e.which==46) // delete 
+   {
+       return true;
+   } else {
+       return false;            
+   }		 
+}

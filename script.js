@@ -1,6 +1,5 @@
-const resultHistory = document.getElementById("result-history")
-const resultResult = document.getElementById("result-result")
-const historyOutput = document.getElementById("history")
+const output = document.getElementById("output")
+const input = document.getElementById("input")
 let j = 0
 
 
@@ -64,11 +63,18 @@ function reset(){
 function backspace(){
    resultResult.value = resultResult.value.substring(0, resultResult.value.length - 1)
 }
-document.getElementById("result-result").onkeydown = function(e){
+/* document.getElementById("result-result").onkeydown = function(e){
    if((e.which >=48 && e.which <=57) || (e.which >=96 && e.which <=105) || e.which==8 || (e.which >=37 && e.which <=40) || e.which==46) // delete 
    {
        return true;
    } else {
        return false;            
    }		 
-}
+} */
+
+$(function(){
+   $("#btn-open").click(function(){
+      $("#block-result").toggleClass("block-result-full")
+         $("#btn-open").toggleClass("block-result__btn-open-reverse")
+   })
+})

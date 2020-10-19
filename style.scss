@@ -1,6 +1,6 @@
 body{
    background: url("https://besthqwallpapers.com/Uploads/7-12-2017/32353/desert-4k-sunset-art-bright-sun.jpg");
-   background-size: cover;
+   background-size: auto;
    background-repeat: no-repeat;
    width: 100%;
    padding: 0;
@@ -10,27 +10,28 @@ body{
    margin: 50px auto 0;
    padding: 0;
    width: 350px;
-   height: 530px;
+   height: 550px;
 }
 .container{
+   position: relative;
    background: #1F1F21;
    border-radius: 5px;
    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
-   width: inherit;   
+   width: 100%;   
    height: 100%;
-   padding: 0 0 20px;
 }
 
 .block-result {
    position: relative;
    background: #1F1F21;
    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-   margin-bottom: 20px;
    border-radius: 5px 5px 0 0;
    width: 100%;
-   height: 105px;
+   height: 100px;
    padding-top: 15px;
-   transition: 0.4s;
+   transition: 0.7s;
+   z-index: 9999;
+   overflow: hidden;
 
    &__output{
       display: block;
@@ -69,27 +70,84 @@ body{
       background: none;
       outline: none;
       border: none;
+      border-radius: 30px;
       color: #F88F13;
       font-size: 20px;
       padding: 0;
       width:  25px;
       height: 18px;
       cursor: pointer;
-      transition: 0.2s;
-   }
-   &__btn-open-reverse{
-      transform: rotate(180deg);
+      transition: 0.4s;
    }
    &__btn-open:hover{
       color: #bc6a05;
+      transition: 0.2   s;
+   }
+   &__btn-open-reverse{
+      transform: rotate(180deg);
+      transition: 0.4s;
+   }
+   &__btn-clear{
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: none;
+      outline: none;
+      border: none;
+      border-radius: 30px;
+      color: #787878;
+      font-size: 25px;
+      padding: 0;
+      width:  25px;
+      height: 25px;
+      text-align: center;
+      line-height: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+   }
+   &__btn-clear:hover{      
+      color: #aaaaaa;
+      transition: 0.2s;
+   }
+   &__btn-clear-hidden{
+      display: block;
       transition: 0.2s;
    }
 }
 .block-result-full{
    height: 534.5px;
    border-radius: 5px;
-   transition: 0.4s;
+   transition: 0.7s;
 }
+.history {
+   width: 100%;
+   height: 410px;
+   box-sizing: border-box;
+   padding: 0 20px;
+   text-align: right;
+   margin-top: 20px;
+   overflow-y: auto;
+	overflow-x: hidden;
+	
+   
+   &__example {
+      margin: 0; 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 18px;
+      color: #969696;
+   }
+
+   &__result {
+      margin: 0 0 25px;
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 28px;
+      color: #fff;      
+   }
+}
+
+
+
 
 /* ALL BUTTONS */
 .btn {
@@ -129,9 +187,10 @@ body{
    transition: 0.15s;
 }
 
-
 /* NUMBERS */
 .numbers {
+   position: absolute;
+   bottom: 20px;
    height: 390px;
    width: 350px;
    user-select: none;
@@ -141,7 +200,6 @@ body{
    grid-template-rows: 70px 70px 70px 70px 70px;
    align-items: stretch;
    justify-content: center;
-   z-index: -9999;
 
 		&__btn1 {
          grid-column: 1/2;

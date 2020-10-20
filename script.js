@@ -8,7 +8,6 @@ function inputNumber(i){
    if (input.value.length == 0 && i == "."){
       input.value = "0"
    }
-   if (input.value)
    if (j == 1){
       input.value = ""
       j = 0
@@ -29,39 +28,43 @@ function inputSymbol(a){
 }
 
 function result(){
-   let num, result;
-   if (input.value == " " && output.value == " "){
-      input.value = " "
-   }
+   if (input.value != ""){
+      let num, result;
 
-   if (input.value == "error"){
-      reset()
-      return
-   }
+      $(function(){   
+         $('.history__title').remove();
+            $('.history__img').remove()
+      });
 
-   num = eval(output.value + input.value)
-   if ((num ^ 0) != num){
-      num = num.toFixed(4)
-   }
+      if (input.value == " " && output.value == " "){
+         input.value = " "
+      }
 
-   result = output.value + input.value + "="
-   output.value = result
-   input.value = num
-   j = 5
+      if (input.value == "error"){
+         reset()
+         return
+      }
 
-   if (num == Infinity){
-      output.value = ""
-      input.value = "error"
-   }
-   if (input != Infinity || input != "error"){
-      let history__result = document.createElement("p");
-      history__result.className = "history__result";
-      history__result.innerHTML = input.value
-      history.prepend(history__result) 
-      let history__example = document.createElement("p");
-      history__example.className = "history__example";
-      history__example.innerHTML = output.value
-      history.prepend(history__example)
+      num = eval(output.value + input.value)
+      if ((num ^ 0) != num){
+         num = num.toFixed(4)
+      }
+
+      result = output.value + input.value + "="
+      output.value = result
+      input.value = num
+      j = 5
+
+      if (num == Infinity){
+         output.value = ""
+         input.value = "error"
+      }
+      if (input != Infinity || input != "error"){
+         let history__example = document.createElement("p");
+         history__example.className = "history__item";
+         history__example.innerHTML = output.value +  + input.value
+         history.prepend(history__example)
+      }
    }
 }
 
@@ -76,15 +79,24 @@ function backspace(){
 }
 
 function clearHistory(){
-   document.getElementById("history").innerHTML = "";
+   let h = document.getElementById("history")
+   h.innerHTML = ""
+   h = document.createElement("img")
+   h.className = "history__img"
+   h.setAttribute("src", "/History.png")
+   history.append(h)
+   h = document.createElement("p")
+   h.className = "history__title"
+   h.innerHTML = "There's no history yet"
+   history.append(h)
 }
+
 
 $(function(){
    $("#btn-open").click(function(){
       $("#block-result").toggleClass("block-result-full");
          $("#btn-open").toggleClass("block-result__btn-open-reverse");
-            $("#btn-clear").delay(10000);
-               $("#btn-clear").toggleClass("block-result__btn-clear-hidden")
+            $("#btn-clear").delay(1000).toggleClass("block-result__btn-clear-hidden")
    })
 })
 
@@ -107,5 +119,3 @@ $("#input").keyup(function(e) {
        return false;            
    }		
 }); */
-
-

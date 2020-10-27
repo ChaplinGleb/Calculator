@@ -90,8 +90,8 @@ body{
    &__btn-clear{
       display: none;
       position: absolute;
-      bottom: 10px;
-      left: 10px;
+      left: 7px;
+      bottom: 7px;
       background: none;
       outline: none;
       border: none;
@@ -104,14 +104,9 @@ body{
       text-align: center;
       line-height: 10px;
       cursor: pointer;
-      transition: 0.2s;
    }
    &__btn-clear:hover{      
       color: #aaaaaa;
-      transition: 0.2s;
-   }
-   &__btn-clear-hidden{
-      display: block;
       transition: 0.2s;
    }
 }
@@ -136,7 +131,6 @@ body{
       font-size: 18px;
       color: #969696;
    }
-
    &__img{
       display: block;
       margin: 100px auto 0;

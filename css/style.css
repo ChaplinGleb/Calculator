@@ -112,8 +112,8 @@ body {
 .block-result__btn-clear {
   display: none;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  left: 7px;
+  bottom: 7px;
   background: none;
   outline: none;
   border: none;
@@ -126,20 +126,10 @@ body {
   text-align: center;
   line-height: 10px;
   cursor: pointer;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
 }
 
 .block-result__btn-clear:hover {
   color: #aaaaaa;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.block-result__btn-clear-hidden {
-  display: block;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;

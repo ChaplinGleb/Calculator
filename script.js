@@ -59,7 +59,7 @@ function result(){
          output.value = ""
          input.value = "error"
       }
-      if (input != Infinity || input != "error"){
+      if (input.value != Infinity && input.value != "error" && input.value != NaN){
          let history__example = document.createElement("p");
          history__example.className = "history__item";
          history__example.innerHTML = output.value +  + input.value
@@ -91,31 +91,19 @@ function clearHistory(){
    history.append(h)
 }
 
-
 $(function(){
    $("#btn-open").click(function(){
       $("#block-result").toggleClass("block-result-full");
-         $("#btn-open").toggleClass("block-result__btn-open-reverse");
-            $("#btn-clear").delay(1000).toggleClass("block-result__btn-clear-hidden")
+      $("#btn-open").toggleClass("block-result__btn-open-reverse");
+      let height = $("#block-result").height()
+      if (height == 100){
+         $("#btn-clear").fadeIn()
+      }
+      if (height > 500){
+         $("#btn-clear").fadeOut()
+      }
+      
+         
    })
 })
 
-/* function check(e){
-   console.log(e.value)
-   
-   if((e.which >=48 && e.which <=57) || (e.which >=96 && e.which <=105) || e.which==8 || (e.which >=37 && e.which <=40) || e.which==46) // delete 
-   {
-       return true;
-   } else {
-       return false;            
-   }		 
-}
-
-$("#input").keyup(function(e) {
-   if((e.which >=48 && e.which <=57) || (e.which >=96 && e.which <=105) || e.which==8 || (e.which >=37 && e.which <=40) || e.which==46) // delete 
-   {
-       return true;
-   } else {
-       return false;            
-   }		
-}); */

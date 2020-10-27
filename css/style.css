@@ -144,15 +144,14 @@ body {
 }
 
 .history {
-  width: 100%;
+  width: 340px;
   height: 410px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 20px;
+  padding: 0 10px;
   text-align: right;
   margin-top: 20px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .history__item {
@@ -163,10 +162,10 @@ body {
 }
 
 .history__img {
-  display: block;
-  margin: 100px auto 0;
   width: 50px;
   height: 50px;
+  display: block;
+  margin: 130px 0 0 140px;
   -webkit-filter: opacity(0.3);
           filter: opacity(0.3);
   pointer-events: none;
@@ -187,6 +186,32 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+::-moz-selection {
+  background: rgba(248, 143, 19, 0.5);
+}
+
+::selection {
+  background: rgba(248, 143, 19, 0.5);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 /* ALL BUTTONS */

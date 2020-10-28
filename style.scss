@@ -1,48 +1,185 @@
 body{
-   background: url("https://besthqwallpapers.com/Uploads/7-12-2017/32353/desert-4k-sunset-art-bright-sun.jpg");
-   background-size: unset;
-   background-repeat: no-repeat;
+   background: url("https://krot.info/uploads/posts/2020-01/1580487290_6-p-foni-s-burgerami-15.jpg");
+   background-size: cover;
+   background-repeat: repeat;
    width: 100%;
    padding: 0;
    margin: 0;
 }
 .wrapper{
-   margin: 50px auto 0;
-   padding: 0;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: calc(50% - 275px);
+   margin: 0 auto;
+   padding: 0 50px;
    width: 350px;
    height: 550px;
 }
-.container {
+.container{
    position: relative;
-   margin: 0 auto;
    background: #1F1F21;
-   width: 350px;
-   padding: 25px 0;
    border-radius: 5px;
-   box-shadow: 0 10px 20px rgba(0,0,0,0.8);
-   user-select: none;
-   display: grid;
-   gap: 10px; 
-   grid-template-columns:  70px  70px  70px  70px;  
-   grid-template-rows:  100px  70px  70px  70px  70px  70px;
-   align-items: stretch;
-   justify-content: center;
-   grid-template-areas: 
-   "header header header header"
-   "main main main sidebar"
-   "main main main sidebar"
-   "main main main sidebar"
-   "main main main sidebar";
-   z-index: 555;
+   box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+   width: 100%;   
+   height: 100%;
 }
 
-/* BTN&FUN */
-.btn{
+.block-result {
+   position: relative;
+   background: #1F1F21;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+   border-radius: 5px 5px 0 0;
+   width: 100%;
+   height: 100px;
+   padding-top: 15px;
+   transition: 0.7s;
+   z-index: 9999;
+   overflow: hidden;
+
+   &__output{
+      display: block;
+      margin: 0 auto;
+      box-sizing: border-box;
+      width: 90%;
+      height: 30px;
+      padding: 0 10px;
+      border: none;
+      text-align: right;
+      background: none;   
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color: #969696;
+      outline: none;
+   }
+   &__input{
+      display: block;
+      margin: 0 auto;
+      box-sizing: border-box;
+      width: 90%;
+      height: 50px;
+      padding: 0 10px;
+      border: none;
+      text-align: right;
+      background: none;   
+      font-family: 'Montserrat', sans-serif;
+      font-size: 35px;
+      color: #fff;
+      outline: none;
+   }
+   &__btn-open{
+      position: absolute;
+      bottom: 4px;
+      left: 162px;
+      background: none;
+      outline: none;
+      border: none;
+      border-radius: 30px;
+      color: #F88F13;
+      font-size: 20px;
+      padding: 0;
+      width:  25px;
+      height: 18px;
+      cursor: pointer;
+      transition: 0.4s;
+   }
+   &__btn-open:hover{
+      color: #bc6a05;
+      transition: 0.2   s;
+   }
+   &__btn-open-reverse{
+      transform: rotate(180deg);
+      transition: 0.4s;
+   }
+   &__btn-clear{
+      display: none;
+      position: absolute;
+      left: 7px;
+      bottom: 7px;
+      background: none;
+      outline: none;
+      border: none;
+      border-radius: 30px;
+      color: #787878;
+      font-size: 25px;
+      padding: 0;
+      width:  25px;
+      height: 25px;
+      text-align: center;
+      line-height: 10px;
+      cursor: pointer;
+   }
+   &__btn-clear:hover{      
+      color: #aaaaaa;
+      transition: 0.2s;
+   }
+}
+.block-result-full{
+   height: 534.5px;
+   border-radius: 5px;
+   transition: 0.7s;
+}
+.history {
+   width: 340px;
+   height: 410px;
+   box-sizing: border-box;
+   padding: 0 10px;
+   text-align: right;
+   margin: 20px auto 0;
+   overflow-y: scroll;
+   
+   &__item {
+      margin: 0 0 20px; 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 18px;
+      color: #969696;
+   }
+   &__img{
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 130px 0 0 140px;
+      filter: opacity(0.3);
+      pointer-events: none;
+      user-select: none;
+   }
+   &__title{
+      text-align: center;
+      margin-top: 10px;
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 16px;
+      color: #626264;
+      font-weight: 500;
+      user-select: none;
+   }
+}
+::selection {
+   background: rgba($color: #F88F13, $alpha: 0.5);
+   }
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+   width: 6px;
+}
+::-webkit-scrollbar-track{
+   background: none;
+}
+::-webkit-scrollbar-thumb{
+   background: rgba($color: #fff, $alpha: .4);
+   border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover{
+   background: rgba($color: #fff, $alpha: .6);
+}
+
+/* ALL BUTTONS */
+.btn {
    border-radius: 35px;
    outline: none;
    border: none;
    background: #f0f0f0;
    margin: 0;
+   padding: 0;
    text-align: center;
    line-height: 65px;
    font-family: 'Montserrat', sans-serif; 
@@ -58,6 +195,7 @@ body{
 .btn:active{
    background: #8b8b8b;
    transition: 0.15s;
+
 }
 .btn-func {
    background: #a3a3a3;
@@ -72,221 +210,118 @@ body{
    transition: 0.15s;
 }
 
-
-
-/* RESULT */
-.block_result { 
-   grid-area: header;
-   grid-column: 1/5;
-   grid-row: 1/2;
-   background: #1F1F21;
-   border-radius: 5px;
-   box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-   margin-bottom: 15px;
-}
-.result-history{
-   margin-top: 5px;
-   box-sizing: border-box;
-   width: 310px;
-   height: 30px;
-   padding: 0 10px;
-   border: none;
-   text-align: right;
-   background: none;   
-   font-family: 'Montserrat', sans-serif;
-   font-size: 20px;
-   color: #969696;
-   outline: none;
-}
-.result-result{
-   box-sizing: border-box;
-   width: 310px;
-   height: 50  px;
-   padding: 0 10px;
-   margin: 0;
-   border: none;
-   text-align: right;
-   background: none;   
-   font-family: 'Montserrat', sans-serif;
-   font-size: 35px;
-   color: #fff;
-   outline: none;
-}
-
-
 /* NUMBERS */
-.btn1 { 
-   grid-area: main;
-   grid-column: 1/2;
-   grid-row: 5/6;
-}
-.btn2 { 
-   grid-area: main;
-   grid-column: 2/3;
-   grid-row: 5/6;
-}
-.btn3 {
-   grid-area: main;
-   grid-column: 3/4;
-   grid-row: 5/6;
-}
-.btn4 { 
-   grid-area: main;
-   grid-column: 1/2;
-   grid-row: 4/5;
-}
-.btn5 { 
-   grid-area: main;
-   grid-column: 2/3;
-   grid-row: 4/5;
-}
-.btn6 { 
-   grid-area: main;
-   grid-column: 3/4;
-   grid-row: 4/5;
-}
-.btn7 { 
-   grid-area: main;
-   grid-column: 1/2;
-   grid-row: 3/4;
-}
-.btn8 { 
-   grid-area: main;
-   grid-column: 2/3;
-   grid-row: 3/4;
-}
-.btn9 { 
-   grid-area: main;
-   grid-column: 3/4;
-   grid-row: 3/4;
-}
-.btn0 { 
-   grid-area: main;
-   grid-column: 2/3;
-   grid-row: 6/7;
-}
-.btn_comma { 
-   grid-area: main;
-   grid-column: 1/2;
-   grid-row: 6/7;
-}
-
-
-/* SIDEBAR */
-.btn_backspace { 
-   grid-area: sidebar;
-   grid-column: 1/3;
-   grid-row: 2/3;
-   line-height: 76px;
-}
-.btn_del { 
-   grid-area: sidebar;
-   grid-column: 3/4;
-   grid-row: 2/3;
-   line-height: 70px;
-}
-.btn_divide { 
-   grid-area: sidebar;
-   grid-column: 4/5;
-   grid-row: 2/3;
-}
-.btn_multiply { 
-   grid-area: sidebar;
-   grid-column: 4/5;
-   grid-row: 3/4;
-}
-.btn_minus { 
-   grid-area: sidebar;
-   grid-column: 4/5;
-   grid-row: 4/5;
-}
-.btn_plus { 
-   grid-area: sidebar;
-   grid-column: 4/5;
-   grid-row: 5/6;
-}
-.btn_equal { 
-   grid-area: sidebar;
-   grid-column: 3/5;
-   grid-row: 6/7;
-   background: #F88F13;
-}
-.btn_equal:hover{
-   background: #bc6a05;
-   transition: 0.2s;
-}
-.btn_equal:active{
-   background: #874b03;
-   transition: 0.2s;
-}
-
-/* HISTORY-LIST */
-.history{
-   position: relative;
-   margin: -550px 0 0 -25px;
-   width: 250px;
-   height: 550px;
-   box-sizing: border-box;
-   background: #1F1F21;
-   padding: 20px 25px;
-   border-radius: 5px;  
-   user-select: none;
-   transition: 0.8s;
-}
-
-.history_left{
-   margin: -550px 0 0 -235px;
-   transition: 0.8s;
-}
-
-.btn-history{
+.numbers {
    position: absolute;
-   top: 230px;
-   left: 5px;
-   outline: none;
-   border: none;
-   border-radius: 20px;
-   width: 35px;
-   height: 35px; 
-   padding-right: 9px;
-   text-align: center;
-   line-height: 2px;
-   font-size: 25px;
-   background: #F88F13;
-   color: #1F1F21;
-   cursor: pointer;
-   transition: 0.4s;
-}
+   bottom: 20px;
+   height: 390px;
+   width: 350px;
+   user-select: none;
+   display: grid;
+   gap: 10px; 
+   grid-template-columns: 70px 70px 70px 70px;  
+   grid-template-rows: 70px 70px 70px 70px 70px;
+   align-items: stretch;
+   justify-content: center;
 
-.btn-history:hover{
-   background: #bc6a05;
-   transition: 0.4s;
-}
+		&__btn1 {
+         grid-column: 1/2;
+         grid-row: 4/5;
+		}
 
+		&__btn2 {
+         grid-column: 2/3;
+         grid-row: 4/5;
+		}
 
-.btn-history-rotate{
-   transition: 0.4s;
-   transform: rotate(180deg);
-}
+		&__btn3 {
+         grid-column: 3/4;
+         grid-row: 4/5;
+		}
 
-.history-list {
-   height: 450px;
-   
-   &_title {
-      text-align: center;
-      margin: 0 0 20px 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 25px;
-      color: #fff;
-      text-transform: uppercase;
-   }
+		&__btn4 { 
+         grid-column: 1/2;
+         grid-row: 3/4;
+		}
 
-   &_item {
-      text-align: right;
-      font-family: 'Montserrat', sans-serif; 
-      font-size: 20px;
-      color: #a3a3a3;
-      margin: 0 0 10px 0;
-   }
+		&__btn5 {
+         grid-column: 2/3;
+         grid-row: 3/4;
+		}
+
+		&__btn6 {
+         grid-column: 3/4;
+         grid-row: 3/4;
+		}
+
+		&__btn7 {
+         grid-column: 1/2;
+         grid-row: 2/3;
+		}
+
+		&__btn8 {
+         grid-column: 2/3;
+         grid-row: 2/3;
+		}
+
+		&__btn9 {
+         grid-column: 3/4;
+         grid-row: 2/3;
+		}
+
+		&__btn0 {
+         grid-column: 2/3;
+         grid-row: 5/6;
+		}
+
+		&__btn-cooma {
+         grid-column: 1/2;
+         grid-row: 5/6;
+		}
+
+		&__btn-backspace {
+         grid-column: 1/3;
+         grid-row: 1/2;
+         line-height: 76px;
+		}
+
+		&__btn-reset {
+         grid-column: 3/4;
+         grid-row: 1/2;
+         line-height: 70px;
+		}
+
+		&__btn-divide {
+         grid-column: 4/5;
+         grid-row: 1/2;
+		}
+
+		&__btn-multiply {
+         grid-column: 4/5;
+         grid-row: 2/3;
+		}
+
+		&__btn-minus {
+         grid-column: 4/5;
+         grid-row: 3/4;
+		}
+
+		&__btn-plus {
+         grid-column: 4/5;
+         grid-row: 4/5;
+		}
+
+		&__btn-equal {
+         grid-column: 3/5;
+         grid-row: 5/6;
+         background: #F88F13;
+      }
+      &__btn-equal:hover{
+         background: #bc6a05;
+         transition: 0.2s;
+      }
+      &__btn-equal:active{
+         background: #874b03;
+         transition: 0.2s;
+      }
 }

@@ -28,22 +28,8 @@ function inputSymbol(a){
 }
 
 function result(){
-   if (input.value != ""){
+   if (input.value != "" && input.value != "error"){
       let num, result;
-
-      $(function(){   
-         $('.history__title').remove();
-            $('.history__img').remove()
-      });
-
-      if (input.value == " " && output.value == " "){
-         input.value = " "
-      }
-
-      if (input.value == "error"){
-         reset()
-         return
-      }
 
       num = eval(output.value + input.value)
       if ((num ^ 0) != num){
@@ -59,12 +45,15 @@ function result(){
          output.value = ""
          input.value = "error"
       }
-      if (input.value != Infinity && input.value != "error" && input.value != NaN){
-         let history__example = document.createElement("p");
-         history__example.className = "history__item";
-         history__example.innerHTML = output.value +  + input.value
-         history.prepend(history__example)
-      }
+      
+      $(function(){   
+         $('.history__title').remove();
+            $('.history__img').remove()
+      });
+      let history__example = document.createElement("p");
+      history__example.className = "history__item";
+      history__example.innerHTML = output.value +  + input.value
+      history.prepend(history__example)
    }
 }
 

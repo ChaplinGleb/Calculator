@@ -14,6 +14,7 @@ function keyboard(e) {
    }
 }
 
+
 function inputNumber(i){
    if (input.value.length == 0 && i == "."){
       input.value = "0"
@@ -38,25 +39,24 @@ function inputSymbol(a){
 }
 
 function result(){
-   if (input.value != "" && input.value != "error"){
+   if (input.value != "" && input.value != "error" &&  input.value != 0){
       let num, result;
 
+      /* calculating */
       num = eval(output.value + input.value)
+      num.toString()
+      num.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')
 
       /* check and handling long numbers */
       if ((num ^ 0) != num){
          num = num.toFixed(4)
       }
-
+      
       result = output.value + input.value + "="
       output.value = result
       input.value = num
       j = 5
 
-      if (num == Infinity){
-         output.value = ""
-         input.value = "error"
-      }
       /* delete image with title of empty history and add result to history */      
       $(function(){   
          $('.history__title').remove();
@@ -66,6 +66,10 @@ function result(){
       history__example.className = "history__item";
       history__example.innerHTML = output.value +  + input.value
       history.prepend(history__example)
+   }else{
+      output.value = ""
+      input.value = "error"
+      return
    }
 }
 

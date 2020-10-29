@@ -3,12 +3,9 @@ const input = document.getElementById("input")
 const history = document.getElementById("history")
 let j = 0
 
-
-
-
+/* keyboard taps */
 const btns = document.querySelectorAll('.btn')
 window.addEventListener('keydown', keyboard)
-
 function keyboard(e) {
    const attr = `[data-key="${e.key}"]`
    const key = document.querySelector('button' + attr)
@@ -16,18 +13,6 @@ function keyboard(e) {
       key.click()
    }
 }
- 
-
-
-
-
-
-
-
-
-
-
-
 
 function inputNumber(i){
    if (input.value.length == 0 && i == "."){
@@ -57,6 +42,8 @@ function result(){
       let num, result;
 
       num = eval(output.value + input.value)
+
+      /* check and handling long numbers */
       if ((num ^ 0) != num){
          num = num.toFixed(4)
       }
@@ -70,7 +57,7 @@ function result(){
          output.value = ""
          input.value = "error"
       }
-      
+      /* delete image with title of empty history and add result to history */      
       $(function(){   
          $('.history__title').remove();
             $('.history__img').remove()
@@ -105,6 +92,7 @@ function clearHistory(){
    history.append(h)
 }
 
+/* open history and show trashbox */
 $(function(){
    $("#btn-open").click(function(){
       $("#block-result").toggleClass("block-result-full");
@@ -115,9 +103,7 @@ $(function(){
       }
       if (height > 500){
          $("#btn-clear").fadeOut()
-      }
-      
-         
+      }  
    })
 })
 

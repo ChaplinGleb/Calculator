@@ -4,6 +4,31 @@ const history = document.getElementById("history")
 let j = 0
 
 
+
+
+const btns = document.querySelectorAll('.btn')
+window.addEventListener('keydown', keyboard)
+
+function keyboard(e) {
+   const attr = `[data-key="${e.key}"]`
+   const key = document.querySelector('button' + attr)
+   if (key != null){
+      key.click()
+   }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 function inputNumber(i){
    if (input.value.length == 0 && i == "."){
       input.value = "0"

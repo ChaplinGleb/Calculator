@@ -10,10 +10,19 @@ function keyboard(e) {
    const attr = `[data-key="${e.key}"]`
    const key = document.querySelector('button' + attr)
    if (key != null){
+      key.classList.add("btn-active")
       key.click()
+      setTimeout(() => {key.classList.remove("btn-active"); }, 100)
    }
-}
+   if (input.value.length >= 15){
+      input.classList.add('smallFonts')
+   }else{
+      input.classList.remove('smallFonts')
+   }
+   input.value = input.value.replace(/\s/g, '');
+   input.value = Number(input.value).toLocaleString('ru-Ru');
 
+}
 
 /* open history and show trashbox */
 $(function(){
@@ -31,53 +40,57 @@ $(function(){
 })
 
 function inputNumber(i){
-   if (input.value.length == 0 && i == "."){
-      input.value = "0"
+   input.value.length == 0 && i == "." ? input.value = "0" : '';
+   if (input.value != 'error'){ 
+      if (j == 1){
+         input.value = ""
+         j = 0
+      }else if (j == 5){
+         output.value = ""
+         input.value = ""
+         j = 0
+      }
+      input.value.length < 18 ? input.value += i : '';
    }
-   if (j == 1){
-      input.value = ""
-      j = 0
-   }else if (j == 5){
-      output.value = ""
-      input.value = ""
-      j = 0
-   }
-   input.value += i
+   console.log(input.value.length)
 }
 
 function inputSymbol(a){
-   if (j == 5){
+   if (input.value != 'error'){
+      j == 5 ? j = 1 : '' ;
+      output.value = input.value.replace(/\s/g, '') + ' ' + a
       j = 1
    }
-   output.value = input.value + a
-   j = 1
 }
 
 function result(){
    if (input.value != "" && input.value != "error" &&  input.value != 0){
-      let num, result;
-
       /* calculating */
-      num = eval(output.value + input.value)
+      let num = eval(output.value + input.value.replace(/\s/g, ''))
 
       /* check and handling long numbers */
-      if ((num ^ 0) != num){
+      if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 6){
          num = num.toFixed(4)
+      }else if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 1){
+         num = num.toFixed(2)
       }
-      
-      result = output.value + input.value + "="
-      output.value = result
+
+      output.value += ' ' + input.value.replace(/\s/g, '') + " ="
       input.value = num
       j = 5
 
       /* delete image with title of empty history and add result to history */      
       $(function(){   
          $('.history__title').remove();
-            $('.history__img').remove()
+         $('.history__img').remove();
       });
       let history__example = document.createElement("p");
-      history__example.className = "history__item";
-      history__example.innerHTML = output.value +  + input.value
+      history__example.className = "history__item2";
+      history__example.innerHTML = input.value
+      history.prepend(history__example)
+      history__example = document.createElement("p");
+      history__example.className = "history__item1";
+      history__example.innerHTML = output.value
       history.prepend(history__example)
    }else{
       output.value = ""
@@ -93,6 +106,7 @@ function reset(){
 }
 
 function backspace(){
+   input.value == 'error' ? reset() : '';
    input.value = input.value.substring(0, input.value.length - 1)
 }
 

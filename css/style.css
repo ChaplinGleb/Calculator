@@ -156,13 +156,21 @@ body {
   text-align: right;
   margin: 20px auto 0;
   overflow-y: scroll;
+  word-wrap: break-word;
 }
 
-.history__item {
-  margin: 0 0 20px;
+.history__item1 {
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   color: #969696;
+}
+
+.history__item2 {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  color: #fff;
 }
 
 .history__img {
@@ -200,6 +208,13 @@ body {
   background: rgba(248, 143, 19, 0.5);
 }
 
+.smallFonts {
+  font-size: 29px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 6px;
@@ -223,7 +238,8 @@ body {
   border-radius: 35px;
   outline: none;
   border: none;
-  background: #f0f0f0;
+  background: #fff;
+  opacity: 0.9;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -238,14 +254,17 @@ body {
 }
 
 .btn:hover {
-  background: #b4b4b4;
+  -webkit-filter: brightness(75%);
+          filter: brightness(75%);
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
 }
 
-.btn:active {
-  background: #8b8b8b;
+.btn:active,
+.btn-active {
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
   -webkit-transition: 0.15s;
   -o-transition: 0.15s;
   transition: 0.15s;
@@ -254,20 +273,6 @@ body {
 .btn-func {
   background: #a3a3a3;
   font-size: 27px;
-}
-
-.btn-func:hover {
-  background: #888888;
-  -webkit-transition: 0.15s;
-  -o-transition: 0.15s;
-  transition: 0.15s;
-}
-
-.btn-func:active {
-  background: #6b6b6b;
-  -webkit-transition: 0.15s;
-  -o-transition: 0.15s;
-  transition: 0.15s;
 }
 
 /* NUMBERS */
@@ -458,18 +463,4 @@ body {
   -ms-grid-row-span: 1;
   grid-row: 5/6;
   background: #F88F13;
-}
-
-.numbers__btn-equal:hover {
-  background: #bc6a05;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.numbers__btn-equal:active {
-  background: #874b03;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
 }

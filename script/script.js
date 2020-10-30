@@ -45,7 +45,7 @@ function inputNumber(i){
       if (j == 1){
          input.value = ""
          j = 0
-      }else if (j == 5){
+      }else if (j == 2){
          output.value = ""
          input.value = ""
          j = 0
@@ -57,8 +57,8 @@ function inputNumber(i){
 
 function inputSymbol(a){
    if (input.value != 'error'){
-      j == 5 ? j = 1 : '' ;
-      output.value = input.value.replace(/\s/g, '') + ' ' + a
+      j == 2 ? j = 1 : '' ;
+      output.value += ' ' + input.value.replace(/\s/g, '') + ' ' + a
       j = 1
    }
 }
@@ -77,7 +77,7 @@ function result(){
 
       output.value += ' ' + input.value.replace(/\s/g, '') + " ="
       input.value = num
-      j = 5
+      j = 2
 
       /* delete image with title of empty history and add result to history */      
       $(function(){   
@@ -86,7 +86,7 @@ function result(){
       });
       let history__example = document.createElement("p");
       history__example.className = "history__item2";
-      history__example.innerHTML = input.value
+      history__example.innerHTML = Number(input.value).toLocaleString('ru-Ru');
       history.prepend(history__example)
       history__example = document.createElement("p");
       history__example.className = "history__item1";

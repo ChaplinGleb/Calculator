@@ -15,6 +15,21 @@ function keyboard(e) {
 }
 
 
+/* open history and show trashbox */
+$(function(){
+   $("#btn-open").click(function(){
+      $("#block-result").toggleClass("block-result-full");
+      $("#btn-open").toggleClass("block-result__btn-open-reverse");
+      let height = $("#block-result").height()
+      if (height == 100){
+         $("#btn-clear").fadeIn()
+      }
+      if (height > 500){
+         $("#btn-clear").fadeOut()
+      }
+   })
+})
+
 function inputNumber(i){
    if (input.value.length == 0 && i == "."){
       input.value = "0"
@@ -44,8 +59,6 @@ function result(){
 
       /* calculating */
       num = eval(output.value + input.value)
-      num.toString()
-      num.replace(/(\d)(?=(\d{3})+(\D|$))/g, '$1 ')
 
       /* check and handling long numbers */
       if ((num ^ 0) != num){
@@ -95,19 +108,3 @@ function clearHistory(){
    h.innerHTML = "There's no history yet"
    history.append(h)
 }
-
-/* open history and show trashbox */
-$(function(){
-   $("#btn-open").click(function(){
-      $("#block-result").toggleClass("block-result-full");
-      $("#btn-open").toggleClass("block-result__btn-open-reverse");
-      let height = $("#block-result").height()
-      if (height == 100){
-         $("#btn-clear").fadeIn()
-      }
-      if (height > 500){
-         $("#btn-clear").fadeOut()
-      }  
-   })
-})
-

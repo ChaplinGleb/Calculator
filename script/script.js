@@ -6,7 +6,7 @@ let j = 0
 /* keyboard taps */
 const btns = document.querySelectorAll('.btn')
 window.addEventListener('keydown', keyboard)
-function keyboard(e) {
+function keyboard(e){
    const attr = `[data-key="${e.key}"]`
    const key = document.querySelector('button' + attr)
    if (key != null){
@@ -19,8 +19,11 @@ function keyboard(e) {
    }else{
       input.classList.remove('smallFonts')
    }
-   input.value = input.value.replace(/\s/g, '');
-   input.value = Number(input.value).toLocaleString('ru-Ru');
+
+   let arr = input.value.split(".");
+   arr[0] = arr[0].replace(/\s/g, '');
+   arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
+   input.value = arr.join('.')
 
 }
 
@@ -52,7 +55,6 @@ function inputNumber(i){
       }
       input.value.length < 18 ? input.value += i : '';
    }
-   console.log(input.value.length)
 }
 
 function inputSymbol(a){

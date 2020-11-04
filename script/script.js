@@ -19,11 +19,13 @@ function keyboard(e){
    }else{
       input.classList.remove('smallFonts')
    }
-
-   let arr = input.value.split(".");
-   arr[0] = arr[0].replace(/\s/g, '');
-   arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
-   input.value = arr.join('.')
+   
+   if (Number(input.value) != ''){
+      let arr = input.value.split(".");
+      arr[0] = arr[0].replace(/\s/g, '');
+      arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
+      input.value = arr.join('.')
+   }
 
 }
 

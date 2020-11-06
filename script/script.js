@@ -1,6 +1,7 @@
 const output = document.getElementById("output")
 const input = document.getElementById("input")
 const history = document.getElementById("history")
+let arrOut = []
 let j = 0
 
 /* нажатия клавиш */
@@ -46,7 +47,6 @@ $(function(){
    })
 })
 
-
 function inputNumber(i){
    input.value.length == 0 && i == "." ? input.value = "0" : '';
    if (input.value != 'error'){ 
@@ -62,10 +62,17 @@ function inputNumber(i){
    }
 }
 
-function inputSymbol(a){
+function inputSymbol(s){
    if (input.value != 'error'){
-      j == 2 ? j = 1 : '' ;
-      output.value += ' ' + input.value.replace(/\s/g, '') + ' ' + a
+      if (j == 1 && arrOut[arrOut.length - 1] != s){
+         arrOut.pop()
+         arrOut.push(' ' + s + ' ')
+         output.value = arrOut.join('')
+         return
+      }
+      arrOut.push(input.value.replace(/\s/g, ''))
+      arrOut.push(' ' + s + ' ')
+      output.value = arrOut.join('')
       j = 1
    }
 }
@@ -107,6 +114,7 @@ function result(){
 }
 
 function reset(){
+   arrOut = []
    output.value = ""
    input.value = ""
    j = 0

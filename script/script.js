@@ -3,7 +3,7 @@ const input = document.getElementById("input")
 const history = document.getElementById("history")
 let j = 0
 
-/* keyboard taps */
+/* нажатия клавиш */
 const btns = document.querySelectorAll('.btn')
 window.addEventListener('keydown', keyboard)
 function keyboard(e){
@@ -14,22 +14,24 @@ function keyboard(e){
       key.click()
       setTimeout(() => {key.classList.remove("btn-active"); }, 100)
    }
+
+   /* изменение кегеля */
    if (input.value.length >= 15){
       input.classList.add('smallFonts')
    }else{
       input.classList.remove('smallFonts')
    }
-   
+
+   /* деление числа на разряды */
    if (Number(input.value) != ''){
       let arr = input.value.split(".");
       arr[0] = arr[0].replace(/\s/g, '');
       arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
       input.value = arr.join('.')
    }
-
 }
 
-/* open history and show trashbox */
+/* открытие истории + появление кнопки очистки */
 $(function(){
    $("#btn-open").click(function(){
       $("#block-result").toggleClass("block-result-full");
@@ -43,6 +45,7 @@ $(function(){
       }
    })
 })
+
 
 function inputNumber(i){
    input.value.length == 0 && i == "." ? input.value = "0" : '';
@@ -69,10 +72,10 @@ function inputSymbol(a){
 
 function result(){
    if (input.value != "" && input.value != "error" &&  input.value != 0){
-      /* calculating */
+      /* подсчет */
       let num = eval(output.value + input.value.replace(/\s/g, ''))
 
-      /* check and handling long numbers */
+      /* округление числа */
       if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 6){
          num = num.toFixed(4)
       }else if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 1){
@@ -83,7 +86,7 @@ function result(){
       input.value = num
       j = 2
 
-      /* delete image with title of empty history and add result to history */      
+      /* удаление "пустой корзины" и добаление истории */ 
       $(function(){   
          $('.history__title').remove();
          $('.history__img').remove();

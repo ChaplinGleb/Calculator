@@ -36,7 +36,7 @@ function keyboard(e){
 
 /* открытие истории + появление кнопки очистки */
 $(function(){
-   $("#btn-open").on("click touchstart", function(){
+   $("#btn-open").click(function(){
       $("#block-result").toggleClass("block-result-full");
       $("#btn-open").toggleClass("block-result__btn-open-reverse");
       let height = $("#block-result").height()
@@ -148,7 +148,7 @@ function clearHistory(){
    h.innerHTML = ""
    h = document.createElement("img")
    h.className = "history__img"
-   h.setAttribute("src", "/History.png")
+   h.setAttribute("src", "images/History.png")
    history.append(h)
    h = document.createElement("p")
    h.className = "history__title"

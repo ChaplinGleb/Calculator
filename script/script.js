@@ -125,6 +125,8 @@ function result(){
       input.value = "error"
       return
    }
+
+   
 }
 
 function reset(){

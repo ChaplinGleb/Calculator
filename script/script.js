@@ -10,6 +10,8 @@ window.addEventListener('keydown', keyboard)
 function keyboard(e){
    const attr = `[data-key="${e.key}"]`
    const key = document.querySelector('button' + attr)
+   
+   /* оформление нажатия */
    if (key != null){
       key.classList.add("btn-active")
       key.click()
@@ -24,7 +26,7 @@ function keyboard(e){
    }
 
    /* деление числа на разряды */
-   if (Number(input.value) != ''){
+   if (Number(input.value) != '' && input.value != "error"){
       let arr = input.value.split(".");
       arr[0] = arr[0].replace(/\s/g, '');
       arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
@@ -60,27 +62,39 @@ function inputNumber(i){
       }
       input.value.length < 18 ? input.value += i : '';
    }
+   (input.value.split(".").length - 1) > 1 ? backspace() : '';
 }
 
 function inputSymbol(s){
    if (input.value != 'error'){
-      if (j == 1 && arrOut[arrOut.length - 1] != s){
+      if (j == 2){
+         arrOut = []
+         arrOut.push(input.value.replace(/\s/g, ''))
+         arrOut.push(' ' + s + ' ')
+         output.value = arrOut.join('')
+         j = 1
+      }else if (j == 1 && arrOut[arrOut.length - 1] != s){
          arrOut.pop()
          arrOut.push(' ' + s + ' ')
          output.value = arrOut.join('')
-         return
+      }else {
+         arrOut.push(input.value.replace(/\s/g, ''))
+         arrOut.push(' ' + s + ' ')
+         output.value = arrOut.join('')
+         j = 1
       }
-      arrOut.push(input.value.replace(/\s/g, ''))
-      arrOut.push(' ' + s + ' ')
-      output.value = arrOut.join('')
-      j = 1
    }
 }
 
 function result(){
-   if (input.value != "" && input.value != "error" &&  input.value != 0){
+   if (input.value != "" && input.value != "error" && j != 2){
       /* подсчет */
       let num = eval(output.value + input.value.replace(/\s/g, ''))
+      if (num == Infinity){
+         output.value = ""
+         input.value = "error" 
+         return
+      }
 
       /* округление числа */
       if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 6){
@@ -88,11 +102,11 @@ function result(){
       }else if (((num.toString().includes('.')) ? (num.toString().split('.').pop().length) : '') > 1){
          num = num.toFixed(2)
       }
-
+      
       output.value += ' ' + input.value.replace(/\s/g, '') + " ="
       input.value = num
       j = 2
-
+      
       /* удаление "пустой корзины" и добаление истории */ 
       $(function(){   
          $('.history__title').remove();

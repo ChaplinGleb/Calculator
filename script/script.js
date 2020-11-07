@@ -103,7 +103,9 @@ function result(){
          num = num.toFixed(2)
       }
       
-      output.value += ' ' + input.value.replace(/\s/g, '') + " ="
+      arrOut.push(input.value.replace(/\s/g, ''))
+      arrOut.push(" =")
+      output.value = arrOut.join('')
       input.value = num
       j = 2
       
@@ -125,7 +127,7 @@ function result(){
       input.value = "error"
       return
    }
-
+   console.log(arrOut)
    
 }
 

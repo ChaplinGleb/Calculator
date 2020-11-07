@@ -1,5 +1,5 @@
 body{
-   background: url("https://krot.info/uploads/posts/2020-01/1580487290_6-p-foni-s-burgerami-15.jpg");
+   background: url("https://screenbeauty.com/image/compress/1000-apple-music-colors-blur-5k-original.jpg");
    background-size: cover;
    background-repeat: repeat;
    width: 100%;
@@ -75,7 +75,7 @@ body{
       outline: none;
       border: none;
       border-radius: 30px;
-      color: #F88F13;
+      color: #33C3F5;
       font-size: 20px;
       padding: 0;
       width:  25px;
@@ -84,7 +84,7 @@ body{
       transition: 0.4s;
    }
    &__btn-open:hover{
-      color: #bc6a05;
+      color: #0a8cb8;
       transition: 0.2   s;
    }
    &__btn-open-reverse{
@@ -161,7 +161,7 @@ body{
    }
 }
 ::selection {
-   background: rgba($color: #F88F13, $alpha: 0.5);
+   background: rgba($color: #33C3F5, $alpha: 0.5);
 }
 .smallFonts{
    font-size: 29px;
@@ -319,6 +319,7 @@ body{
 		&__btn-equal {
          grid-column: 3/5;
          grid-row: 5/6;
-         background: #F88F13;
+         background: #33C3F5;
+         //background: #F88F13;
       }
 }

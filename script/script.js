@@ -36,7 +36,7 @@ function keyboard(e){
 
 /* открытие истории + появление кнопки очистки */
 $(function(){
-   $("#btn-open").click(function(){
+   $("#btn-open").on("click touchstart", function(){
       $("#block-result").toggleClass("block-result-full");
       $("#btn-open").toggleClass("block-result__btn-open-reverse");
       let height = $("#block-result").height()

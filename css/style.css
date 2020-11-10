@@ -14,8 +14,9 @@ body {
   right: 0;
   top: calc(50% - 275px);
   margin: 0 auto;
-  width: 350px;
+  width: 400px;
   height: 550px;
+  border: 1px solid red;
 }
 
 .container {
@@ -24,8 +25,9 @@ body {
   border-radius: 5px;
   -webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
-  width: 100%;
+  width: 350px;
   height: 100%;
+  margin: 0 auto;
 }
 
 .block-result {

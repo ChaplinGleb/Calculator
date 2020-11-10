@@ -13,7 +13,7 @@ body{
    right: 0;
    top: calc(50% - 275px);
    margin: 0 auto;
-   width: 370px;
+   width: 350px;
    height: 550px;
    border: 1px solid red;
 }
@@ -322,6 +322,5 @@ body{
          grid-column: 3/5;
          grid-row: 5/6;
          background: #33C3F5;
-         //background: #F88F13;
       }
 }

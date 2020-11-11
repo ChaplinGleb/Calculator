@@ -58,6 +58,7 @@ function inputNumber(i){
       }else if (j == 2){
          output.value = ""
          input.value = ""
+         arrOut = []
          j = 0
       }
       input.value.length < 18 ? input.value += i : '';

@@ -1,3 +1,8 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: url("https://screenbeauty.com/image/compress/1000-apple-music-colors-blur-5k-original.jpg");
   background-size: cover;
@@ -6,16 +11,19 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  border: 1px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .wrapper {
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(50% - 275px);
-  margin: 0 auto;
   width: 370px;
   height: 550px;
+  top: calc(50% - 275px);
+  margin: 0 auto;
   padding: 0 15px;
 }
 

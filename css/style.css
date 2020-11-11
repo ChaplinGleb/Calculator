@@ -11,12 +11,8 @@ body {
   margin: 0;
 }
 
+/* general setting */
 .wrapper {
-  /* position: absolute;
-   left: 0;
-   right: 0;
-   top: calc(50% - 275px);
-   height: 550px; */
   width: 400px;
   min-height: 100%;
   margin: 0 auto;
@@ -36,6 +32,24 @@ body {
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* result */
 .block-result {
   position: relative;
   background: #1F1F21;
@@ -223,25 +237,7 @@ body {
   transition: 0.2s;
 }
 
-/* SCROLLBAR */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-/* ALL BUTTONS */
+/* general buttons */
 .btn {
   border-radius: 35px;
   outline: none;
@@ -283,7 +279,7 @@ body {
   font-size: 27px;
 }
 
-/* NUMBERS */
+/* numbers */
 .numbers {
   position: absolute;
   bottom: 20px;

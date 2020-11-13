@@ -4,6 +4,12 @@ const history = document.getElementById("history")
 let arrOut = []
 let j = 0
 
+
+
+
+
+
+
 /* нажатия клавиш */
 const btns = document.querySelectorAll('.btn')
 window.addEventListener('keydown', keyboard)
@@ -23,14 +29,6 @@ function keyboard(e){
       input.classList.add('smallFonts')
    }else{
       input.classList.remove('smallFonts')
-   }
-
-   /* деление числа на разряды */
-   if (Number(input.value) != '' && input.value != "error"){
-      let arr = input.value.split(".");
-      arr[0] = arr[0].replace(/\s/g, '');
-      arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
-      input.value = arr.join('.')
    }
 }
 
@@ -62,9 +60,28 @@ function inputNumber(i){
          j = 0
       }
       input.value.length < 18 ? input.value += i : '';
-   }
+
+      /* деление числа на разряды */
+      /* if (input.value != '' && input.value != '(' && input.value != ')'){
+         let arr
+         if (input.value.includes('(')){
+            arr = input.value.split('(')
+            arr = arr.find(item => item != '')
+            arr = arr.replace(/\s/g, '');
+            arr = parseInt(arr).toLocaleString('ru-Ru');
+            input.value = arr.join('(')
+            return
+         }else if (input.value.includes('.')){
+            arr = input.value.split(".");
+            arr[0] = arr[0].replace(/\s/g, '');
+            arr[0] = parseInt(arr[0]).toLocaleString('ru-Ru');
+            input.value = arr.join('.')
+         }
+      } */
    (input.value.split(".").length - 1) > 1 ? backspace() : '';
+   }
 }
+
 
 function inputSymbol(s){
    if (input.value != 'error'){
@@ -88,7 +105,7 @@ function inputSymbol(s){
 }
 
 function result(){
-   if (input.value != "" && input.value != "error" && j != 2){
+   if (input.value != "" && input.value != "error" && j != 2 && input.value != '(' && input.value != ')'){
       /* подсчет */
       let num = eval(output.value + input.value.replace(/\s/g, ''))
       if (num == Infinity){

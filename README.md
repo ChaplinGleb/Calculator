@@ -2,7 +2,7 @@
 
 [Попробуй](https://chaplingleb.github.io/Calculator/)
 
-<p align="center"><img src="https://sun9-18.userapi.com/impg/vJFMG_yVmwdr4LPs_Q_guRKMwmGbcoM1TMl7dA/KFPCNu1p0gI.jpg?size=500x500&quality=96&proxy=1&sign=a2e0d11f1df18a84230912f350a61581&type=album" width="300"></p>
+<p align="center"><img src="https://vk.com/doc18686155_582099177?hash=228e67c40f26304cc8&dl=2763895e6ce5681d22" width="300"></p>
 <h1 align="center">Калькулятор JS</h1>
 
 ## О калькуляторе
